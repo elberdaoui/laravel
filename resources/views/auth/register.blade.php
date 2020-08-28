@@ -11,11 +11,25 @@
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Username</label>
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
+                            <label for="username" class="col-md-4 control-label">Username</label>
+
+                            <div class="col-md-6">
+                                <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus>
 
                                 @if ($errors->has('username'))
                                     <span class="help-block">
@@ -58,6 +72,48 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
+                            <label for="description" class="col-md-4 control-label">Description</label>
+
+                            <div class="col-md-6">
+                                <input id="description" type="text" class="form-control" name="description" value="{{ old('description') }}" required autofocus>
+
+                                @if ($errors->has('description'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('description') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('profile_image') ? ' has-error' : '' }}">
+                            <label for="profile_image" class="col-md-4 control-label">Profile Image</label>
+
+                            <div class="col-md-6">
+                                <input id="profile_image" type="file" class="form-control" name="profile_image" value="{{ old('profile_image') }}" required autofocus>
+
+                                @if ($errors->has('profile_image'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('profile_image') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
+                            <label for="role" class="col-md-4 control-label">Role</label>
+
+                            <div class="col-md-6">
+                                <input id="role" type="text" class="form-control" name="role" value="{{ old('role') }}" required autofocus>
+
+                                @if ($errors->has('role'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('role') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
 

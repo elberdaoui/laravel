@@ -52,7 +52,7 @@ class UserController extends Controller
             $path = $request->file('picture_user')->store('users');
             $user->profile_image = $path;
         }
-
+        $user->name = $request['name'];
         $user->username = $request['username'];
         $user->description = $request['user_description'];
         $user->email = $request['email'];
